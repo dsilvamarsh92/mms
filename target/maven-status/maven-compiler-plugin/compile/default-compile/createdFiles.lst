@@ -1,0 +1,8 @@
+com/dsilva/mms/web/controller/BaseController.class
+com/dsilva/mms/web/service/ApplicationFormService.class
+com/dsilva/mms/web/dao/BaseEntityDao.class
+com/dsilva/mms/web/controller/ApplicationFormController.class
+com/dsilva/mms/web/service/BaseService.class
+com/dsilva/mms/web/dao/ApplicationFormDao.class
+com/dsilva/mms/web/model/ApplicationForm.class
+com/dsilva/mms/web/controller/DisplayController.class

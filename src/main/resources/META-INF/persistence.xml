@@ -9,6 +9,7 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<jta-data-source>java:jboss/dsilva/product/datasource/mmsDS</jta-data-source>
 		<!-- <class>com.dsilva.billing.web.model.Customer</class> -->
+		<!-- <class>com.dsilva.mms.web.model.ApplicationForm</class> -->
 		<properties>
 			<!-- configure Jndi for Entity Manager Factory . Jboss will Link a EMF 
 				to this JNDI once application loads -->

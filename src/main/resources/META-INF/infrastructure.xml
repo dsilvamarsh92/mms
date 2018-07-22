@@ -13,9 +13,8 @@
 
 	<jee:jndi-lookup jndi-name="java:jboss/dsilva/product/datasource/mmsDS"
 		id="dataSource" expected-type="javax.sql.DataSource" />
-	<jee:jndi-lookup
-		jndi-name="java:jboss/dsilva/product/mms/entityManagerFactory" id="entityManagerFactory"
-		expected-type="javax.persistence.EntityManagerFactory" />
+	<jee:jndi-lookup jndi-name="java:jboss/dsilva/product/mms/entityManagerFactory"
+		id="entityManagerFactory" expected-type="javax.persistence.EntityManagerFactory" />
 	<bean id="entityManager"
 		class="org.springframework.orm.jpa.support.SharedEntityManagerBean"
 		p:entityManagerFactory-ref="entityManagerFactory" />

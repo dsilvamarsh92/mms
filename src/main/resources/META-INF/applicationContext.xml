@@ -31,19 +31,16 @@
 
 	<tx:annotation-driven />
 
-	
+	<!-- SERVICE LAYER CONFIGURATIONS -->	
+	<bean id="service" name="service" class="com.dsilva.mms.web.service.BaseService" />
+	<bean id="appFormService" name="appFormService" class="com.dsilva.mms.web.service.ApplicationFormService" parent="service" 
+	p:dao-ref="appFormDao"/>
 
 
-	<!-- <bean id="customerDao" name="customerDao"
-		class="com.dsilva.billing.web.dao.CustomerDAO" 
-		parent="baseEntityDao"
-		/>
 
-	
-	<bean id="service" name="service" class="com.dsilva.billing.web.service.CustomerService"
-	p:customerDao-ref="customerDao" 
-	/>
- -->	
-	
+	<!-- DAO LAYER CONFIGURATIONS -->	
+	<bean id="dao" name="dao" class="com.dsilva.mms.web.dao.BaseEntityDao"/>
+	<bean id="appFormDao" name="appFormDao" class="com.dsilva.mms.web.dao.ApplicationFormDao" parent="dao"/>
+		
 
 </beans>
