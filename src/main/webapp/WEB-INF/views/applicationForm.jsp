@@ -4,7 +4,7 @@
 <html>
 <body>
 
-	<div class=" w3-container w3-yellow w3-display-topmiddle">
+	<div class=" w3-container w3-yellow w3-display-topright">
 
 
 		<h2>Family Commission, Vasai Dioceses</h2>
@@ -20,28 +20,28 @@
 			action="addApplicationForm">
 			<table>
 				<tr>
-					<td><form:label path="User Name"></form:label></td>
+					<td><form:label path="userName">User Name</form:label></td>
 					<td><form:input path="userName" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="Religion"></form:label></td>
+					<td><form:label path="religion">Religion</form:label></td>
 					<td><form:input path="religion" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="Sub Caste"></form:label></td>
+					<td><form:label path="subCaste">Sub Caste</form:label></td>
 					<td><form:input path="subCaste" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="Qualification"></form:label></td>
+					<td><form:label path="education">Education</form:label></td>
 					<td><form:input path="education" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="Profession"></form:label></td>
+					<td><form:label path="profession">Profession</form:label></td>
 					<td><form:input path="profession" /></td>
 				</tr>
 				<tr>
 					
-					<td><form:button name="Submit" value="Register"/></td>
+					<td><form:button name="Submit" value="Register"/>Register</td>
 				</tr>
 		
 			</table>

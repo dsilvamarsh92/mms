@@ -45,8 +45,8 @@ public class ApplicationFormController extends BaseController{
 	public ModelAndView getApplicationForm(ModelAndView model) {
 	
 		log.debug("inside getApplicationForm ");
-		model.addObject(new ApplicationForm());
-		model.setViewName("ApplicationForm");
+		model.addObject("applicationForm",new ApplicationForm());
+		model.setViewName("applicationForm");
 		log.debug("leaving getApplicationForm ");
 		return model;
 	}
@@ -56,8 +56,8 @@ public class ApplicationFormController extends BaseController{
 		log.debug(" inside addApplicationForm");
 		
 		appFormService.save(form);
-		
-		
+		model.addObject("applicationForm",form);
+		model.setViewName("applicationForm");
 		log.debug(" leaving addApplicationForm");
 		return model;
 	}
