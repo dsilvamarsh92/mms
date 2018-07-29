@@ -33,6 +33,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 /**
  * @author marsh
@@ -40,26 +41,28 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name="ApplicationForm")
-public class ApplicationForm {
+@Table(name="ApplicationForm" ,uniqueConstraints= {@UniqueConstraint(columnNames="userName")})
+public class ApplicationForm implements ModelBean,Serializable{
 
 	private static final long serialVersionUID = 1L;
+
+
 
 	@Id
 	@GeneratedValue(generator="ApplicationForm",strategy=GenerationType.SEQUENCE)
 	@SequenceGenerator(name="ApplicationForm",sequenceName="seq_ApplicationForm",initialValue=1,allocationSize=1 )
 	private long userId;
 
-	@Nonnull
+
 	private String userName;
 
 	@Nonnull
 	private String religion;
-	
+
 	private String subCaste;
-	
+
 	private String education;
-	
+
 	private String profession;
 
 	public long getUserId() {
@@ -110,5 +113,12 @@ public class ApplicationForm {
 		this.profession = profession;
 	}
 
-
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("ApplicationForm [userId=").append(userId).append(", userName=").append(userName)
+		.append(", religion=").append(religion).append(", subCaste=").append(subCaste).append(", education=")
+		.append(education).append(", profession=").append(profession).append("]");
+		return builder.toString();
+	}
 }

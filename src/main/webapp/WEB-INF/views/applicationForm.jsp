@@ -4,14 +4,7 @@
 <html>
 <body>
 
-	<div class=" w3-container w3-yellow w3-display-topright">
 
-
-		<h2>Family Commission, Vasai Dioceses</h2>
-		<h3>Vadhu-Var Suchack Mandal</h3>
-
-
-	</div>
 
 
 	<div class="w3-container">
@@ -40,16 +33,58 @@
 					<td><form:input path="profession" /></td>
 				</tr>
 				<tr>
-					
-					<td><form:button name="Submit" value="Register"/>Register</td>
+					<td><input name="Register" value="Register" type="submit"></td>
 				</tr>
-		
+
 			</table>
 
 
 		</form:form>
 	</div>
 
+	<div class="w3-container">
 
+		<table>
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Religion</th>
+				<th>Sub Caste</th>
+				<th>Education</th>
+				<th>Profession</th>
+			</tr>
+			<c:forEach items="${applicationFormList}" var="appForm">
+				<tr>
+
+					<td>${appForm.userId}</td>
+					<td>${appForm.userName}</td>
+					<td>${appForm.religion}</td>
+					<td>${appForm.subCaste}</td>
+					<td>${appForm.education}</td>
+					<td>${appForm.profession}</td>
+
+
+				</tr>
+
+			</c:forEach>
+
+		</table>
+
+
+	</div>
+
+	<div>
+	
+	<c:if test="${not empty lists}">
+
+		<ul>
+			<c:forEach var="listValue" items="${lists}">
+				<li>${listValue}</li>
+			</c:forEach>
+		</ul>
+
+	</c:if>
+	
+	</div>
 </body>
 </html>

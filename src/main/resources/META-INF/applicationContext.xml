@@ -29,18 +29,20 @@
 	<mvc:annotation-driven></mvc:annotation-driven>
 	<!-- Servlet level bean defination configuration. -->
 
-	<tx:annotation-driven />
+	<tx:annotation-driven proxy-target-class="true"/>
 
-	<!-- SERVICE LAYER CONFIGURATIONS -->	
-	<bean id="service" name="service" class="com.dsilva.mms.web.service.BaseService" />
-	<bean id="appFormService" name="appFormService" class="com.dsilva.mms.web.service.ApplicationFormService" parent="service" 
-	p:dao-ref="appFormDao"/>
+	<!-- SERVICE LAYER CONFIGURATIONS -->
+	<!-- <bean id="baseService" name="service" class="com.dsilva.mms.web.service.BaseService" 
+		/> -->
+	<bean id="appFormService" name="appFormService"
+		class="com.dsilva.mms.web.service.ApplicationFormService" />
 
 
 
-	<!-- DAO LAYER CONFIGURATIONS -->	
-	<bean id="dao" name="dao" class="com.dsilva.mms.web.dao.BaseEntityDao"/>
-	<bean id="appFormDao" name="appFormDao" class="com.dsilva.mms.web.dao.ApplicationFormDao" parent="dao"/>
-		
+	<!-- DAO LAYER CONFIGURATIONS -->
+	<!-- <bean id="baseDao" name="dao" class="com.dsilva.mms.web.dao.BaseEntityDao"/> -->
+	<bean id="appFormDao" name="appFormDao"
+		class="com.dsilva.mms.web.dao.ApplicationFormDao" />
+
 
 </beans>

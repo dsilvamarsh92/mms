@@ -1,52 +1,19 @@
 package com.dsilva.mms.web.service;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import java.util.List;
 
-import com.dsilva.mms.web.dao.BaseEntityDao;
+import com.dsilva.mms.web.model.ModelBean;
 
-public  class BaseService<T> {
+public  interface BaseService {
 
-	
-	private static Logger log = LogManager.getLogger(BaseService.class.getName());
-	public BaseService() {
-		// TODO Auto-generated constructor stub
-	}
-	
-	private BaseEntityDao<T> dao;
-	
-	public void save(T obj){
-		log.debug("Inside save for BaseService");
-		dao.save(obj);
-		log.debug("exiting save for BaseService");
-	}
+	public void save(ModelBean obj); 
 
-	public void remove(T obj) {
-		log.debug("Inside delete for BaseService");
-		dao.delete(obj);
-		log.debug("exiting delete for BaseService");
-		
-		
-	} 
-	
-	public void modify(T obj) {
-		log.debug("Inside modify for BaseService");
-		dao.modify(obj);
-		log.debug("exiting modify for BaseService");
-		
-		
-		
-	}
-	
-	
-	public BaseEntityDao<T> getDao() {
-		return dao;
-	}
+	public  void delete(ModelBean obj) ;
 
-	public void setDao(BaseEntityDao<T> dao) {
-		this.dao = dao;
-	}
-	
-	
-	
+	public  void modify(ModelBean obj) ;
+
+	public ModelBean getModel(int primaryid);
+
+	public  List<ModelBean> findAllOrderByName(ModelBean obj);
+
 }

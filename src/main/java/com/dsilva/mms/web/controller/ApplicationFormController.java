@@ -15,30 +15,37 @@
  ******************************************************************************/
 package com.dsilva.mms.web.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dsilva.mms.web.model.ApplicationForm;
-import com.dsilva.mms.web.service.BaseService;
+import com.dsilva.mms.web.service.ApplicationFormService;
 
 @Controller
 public class ApplicationFormController extends BaseController{
 	
 	
-	private static Logger log = LogManager.getLogger(ApplicationFormController.class.getName()); 
-	
+	//private static Log log = LogFactory.getLog(ApplicationFormController.class.getName()); 
+	private static Logger log= LogManager.getLogger(ApplicationFormController.class.getName());
 	@Autowired
-	private BaseService<ApplicationForm> appFormService;
+	private ApplicationFormService appFormService;
 	
 	public ApplicationFormController() {
-	super();
-	log.debug("lodaing getApplicationForm ");
+	
+	log.debug("Entring getApplicationForm ");
+
+	log.debug("leaving getApplicationForm ");
+
 	}
 
 	@GetMapping(value="/getApplicationForm")
@@ -47,28 +54,53 @@ public class ApplicationFormController extends BaseController{
 		log.debug("inside getApplicationForm ");
 		model.addObject("applicationForm",new ApplicationForm());
 		model.setViewName("applicationForm");
+		model.addObject("applicationFormList",appFormService.findAllOrderByName(new ApplicationForm()));
+		log.debug("List of objects"+model.getModel().get("applicationFormList"));
 		log.debug("leaving getApplicationForm ");
+		
+		// test
+		List<String> list = getList();
+		model.addObject("lists", list);
+		
 		return model;
 	}
 	
 	@PostMapping(value="/addApplicationForm")
-	public ModelAndView addApplicationForm(ModelAndView model,@ModelAttribute(value="addApplicationForm") ApplicationForm form) {
+	public ModelAndView addApplicationForm(ModelAndView model,@ModelAttribute(value="addApplicationForm") ApplicationForm form,BindingResult result) {
 		log.debug(" inside addApplicationForm");
 		
 		appFormService.save(form);
 		model.addObject("applicationForm",form);
 		model.setViewName("applicationForm");
+		model.addObject("applicationFormList",getAppFormService().findAllOrderByName(new ApplicationForm()));
 		log.debug(" leaving addApplicationForm");
 		return model;
 	}
 
-	public BaseService<ApplicationForm> getAppFormService() {
+	public ApplicationFormService getAppFormService() {
 		return appFormService;
 	}
 
-	public void setAppFormService(BaseService<ApplicationForm> appFormService) {
+	public void setAppFormService(ApplicationFormService appFormService) {
 		this.appFormService = appFormService;
 	}
+
+	private List<String> getList() {
+
+		List<String> list = new ArrayList<String>();
+		list.add("List A");
+		list.add("List B");
+		list.add("List C");
+		list.add("List D");
+		list.add("List 1");
+		list.add("List 2");
+		list.add("List 3");
+
+		return list;
+
+	}
+
+
 
 	
 
